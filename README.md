@@ -1,4 +1,5 @@
-The Docker setup for PHP applications using PHP7-FPM and Nginx described in http://geekyplatypus.com/dockerise-your-php-application-with-nginx-and-php7-fpm
+The Docker setup for PHP applications using PHP-FPM and Nginx described in 
+http://geekyplatypus.com/dockerise-your-php-application-with-nginx-and-php7-fpm
 
 ## Instructions
 1. Checkout the repository
@@ -10,3 +11,6 @@ The Docker setup for PHP applications using PHP7-FPM and Nginx described in http
 That's it! You have your local PHP setup using Docker
 
 *Example of activated PHP logging* - https://github.com/mikechernev/dockerised-php/tree/feature/log-to-stdout
+
+ptolemy.sotir@googlemail.com
+Added PostGreSQL to the mix
