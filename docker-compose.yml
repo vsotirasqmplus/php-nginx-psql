@@ -1,0 +1,43 @@
+version: '2'
+
+services:
+    database:
+        image: "postgres" # use latest official postgres version
+        env_file:
+          - database.env # configure postgres
+        networks:
+            - code-network
+        volumes:
+            - database-data
+
+    web:
+        image: nginx:latest
+        ports:
+            - "8080:80"
+        volumes:
+            - ./code:/code
+            - ./site.conf:/etc/nginx/conf.d/default.conf
+        networks:
+            - code-network
+        depends_on:
+            - database
+    php:
+        # For the latest PHP 7 version
+        # image: php:7-fpm
+        # For the latest PHP 7.2 version
+        # image: php:7.2-fpm
+        # For the latest PHP version
+        image: php:fpm
+        volumes:
+            - ./code:/code
+        networks:
+            - code-network
+networks:
+    code-network:
+        driver: bridge
+volumes:
+    database-data: 
+        external:
+            name: postgresqldata
+      # persist data even if container shuts down
+
